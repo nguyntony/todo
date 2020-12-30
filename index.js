@@ -15,10 +15,12 @@ const FileStore = require('session-file-store')(session);
 const PORT = 3000;
 const HOST = 'localhost';
 
-const {
-    homeRouter,
-    userRouter
-} = require("./routers")
+// const {
+//     homeRouter,
+//     userRouter
+// } = require("./routers")
+
+const routers = require("./routers")
 
 app.engine('html', es6Renderer);
 app.set('views', 'templates');
@@ -40,8 +42,9 @@ app.use(logger)
 app.use(express.urlencoded({ extended: true }));
 
 // MORE CODE GOES HERE
-app.use("/", homeRouter)
-app.use("/user", userRouter)
+// app.use("/", homeRouter)
+// app.use("/user", userRouter)
+app.use(routers)
 
 server.listen(PORT, HOST, () => {
     console.log(`Listening at http://${HOST}:${PORT}`);

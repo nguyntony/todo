@@ -9,7 +9,17 @@
 // NOTE
 // the files in this folder will have to import express to create a router object and also import the corresponding controllers
 
-module.exports = {
-    homeRouter: require("./home"),
-    userRouter: require("./user")
-}
+// module.exports = {
+//     homeRouter: require("./home"),
+//     userRouter: require("./user")
+// }
+
+const express = require("express")
+const router = express.Router();
+
+router
+    .use("/", require("./home"))
+    .use("/user", require("./user"))
+    .use("/member", require("./member"))
+
+module.exports = router;
