@@ -21,5 +21,6 @@ router
     .use("/", require("./home"))
     .use("/user", require("./user"))
     .use("/member", require("./member"))
+    .use("/member/todo", require("./todo"))
 
 module.exports = router;
