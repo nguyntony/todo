@@ -1,6 +1,6 @@
 const { layout } = require("../utils")
 
-const home = ((req, res) => {
+const home = (req, res) => {
     const { username } = req.session.user
     res.render("member/home", {
         ...layout,
@@ -9,22 +9,34 @@ const home = ((req, res) => {
             username
         }
     })
-})
+}
 
 const requireLogin = (req, res, next) => {
     if (req.session.user) {
-        next()
+        next();
     } else {
-        res.redirect("user/form", {
-            ...layout,
-            locals: {
-                title: "Log In"
-            }
-        })
+        res.redirect("/user/login")
     }
+}
+
+const list = (req, res) => {
+    res.render("member/todo", {
+        ...layout,
+        locals: {
+            title: "Todo List"
+        }
+    })
+}
+
+const logout = (req, res) => {
+    req.session.destroy(() => {
+        res.redirect("/")
+    })
 }
 
 module.exports = {
     home,
-    requireLogin
+    requireLogin,
+    list,
+    logout
 }
