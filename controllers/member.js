@@ -1,4 +1,5 @@
 const { layout } = require("../utils")
+const { Todo } = require("../models")
 
 const home = (req, res) => {
     const { username } = req.session.user
@@ -19,11 +20,18 @@ const requireLogin = (req, res, next) => {
     }
 }
 
-const list = (req, res) => {
+const list = async (req, res) => {
+    const { id } = req.session.user
+    const tasks = await Todo.findAll({
+        where: {
+            userID: id
+        }
+    })
     res.render("member/todo", {
         ...layout,
         locals: {
-            title: "Todo List"
+            title: "Todo List",
+            tasks
         }
     })
 }

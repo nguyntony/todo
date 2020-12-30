@@ -1,4 +1,11 @@
 ${header}
 <h1>Your Todo List</h1>
 <a href="/member/todo/create">Add</a>
+<div>
+    <ul>
+        ${tasks.map(t => `
+            <li>${t.task}</li>
+            `).join("")}
+    </ul>
+</div>
 ${footer}
