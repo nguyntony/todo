@@ -5,8 +5,8 @@ ${header}
     <ul>
         ${tasks.map(t => `
             <li>
-                <button><a href="/member/todo/${t.id}/edit">Update</a></button>
-                <button><a href="/member/todo/${t.id}/delete">Delete</a></button>
+                <button><a style="text-decoration: none; color: black" href="/member/todo/${t.id}/edit">Update</a></button>
+                <button><a style="text-decoration: none; color: black" href="/member/todo/${t.id}/delete">Delete</a></button>
                 <form style="display: inline;" action="/member/todo/${t.id}/completed" method="POST">
                     <button style="cursor: pointer;" type="submit">Completed</button>
                 </form>
