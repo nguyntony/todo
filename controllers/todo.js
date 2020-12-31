@@ -74,6 +74,7 @@ const processDelForm = async (req, res) => {
     const { confirmation } = req.body
     const { todoID } = req.params
 
+    // this is the delete confirmation form
     if (todoID === confirmation) {
         const todo = await Todo.destroy({
             where: {
