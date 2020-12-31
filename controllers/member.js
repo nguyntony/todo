@@ -24,14 +24,23 @@ const list = async (req, res) => {
     const { id } = req.session.user
     const tasks = await Todo.findAll({
         where: {
-            userID: id
+            userID: id,
+            isComplete: false
         }
     })
+    const completedTasks = await Todo.findAll({
+        where: {
+            userID: id,
+            isComplete: true
+        }
+    })
+
     res.render("member/todo", {
         ...layout,
         locals: {
             title: "Todo List",
-            tasks
+            tasks,
+            completedTasks
         }
     })
 }

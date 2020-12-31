@@ -4,7 +4,20 @@ ${header}
 <div>
     <ul>
         ${tasks.map(t => `
-            <li>${t.task}</li>
+            <li>
+                <button><a href="/member/todo/${t.id}/edit">Update</a></button>
+                <button><a href="/member/todo/${t.id}/delete">Delete</a></button>
+                <form style="display: inline;" action="/member/todo/${t.id}/completed" method="POST">
+                    <button style="cursor: pointer;" type="submit">Completed</button>
+                </form>
+                ${t.task}
+            </li>
+            `).join("")}
+    </ul>
+
+    <ul>
+        ${completedTasks.map(t => `
+            <li style="text-decoration: line-through;">${t.task}</li>
             `).join("")}
     </ul>
 </div>

@@ -1,0 +1,12 @@
+${header}
+<h1>Delete confirmation</h1>
+<p><strong>ID: ${todo.id}</strong>&ensp;|&ensp;${todo.task}</p>
+<form method="POST">
+    <label for="confirmation"></label>
+    <input type="text" name="confirmation" id="confirmation" placeholder="Please enter the task id to confirm." style="width: 13rem;" autofocus required>
+
+    <input type="submit" value="Confirm">
+</form>
+<p>${errorMsg}</p>
+<a href="/member/todo">Go Back</a>
+${footer}
