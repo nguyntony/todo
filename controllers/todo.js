@@ -100,6 +100,7 @@ const processDelForm = async (req, res) => {
 }
 
 const completed = async (req, res) => {
+    // completed button for list items
     const { todoID } = req.params
     const todo = await Todo.update({
         isComplete: true
