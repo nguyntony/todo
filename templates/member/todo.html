@@ -2,6 +2,7 @@ ${header}
 <h1>Your Todo List</h1>
 <a href="/member/todo/create">Add</a>
 <div>
+    <h2>Tasks</h2>
     <ul>
         ${tasks.map(t => `
             <li>
@@ -14,11 +15,13 @@ ${header}
             </li>
             `).join("")}
     </ul>
-
+</div>
+<div>
+    <h2>Completed Tasks</h2>
     <ul>
-        ${completedTasks.map(t => `
-            <li style="text-decoration: line-through;">${t.task}</li>
-            `).join("")}
+            ${completedTasks.map(t => `
+                <li style="text-decoration: line-through;">${t.task}</li>
+                `).join("")}
     </ul>
 </div>
 ${footer}
