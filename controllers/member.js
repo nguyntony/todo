@@ -39,7 +39,7 @@ const list = async (req, res) => {
         ...layout,
         locals: {
             title: "Todo List",
-            tasks,
+            tasks: tasks.sort((a, b) => a.id - b.id),
             completedTasks
         }
     })
