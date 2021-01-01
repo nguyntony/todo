@@ -21,6 +21,8 @@ const processTodo = async (req, res) => {
     res.redirect("/member/todo")
 }
 
+// the db will have an entry of whether the task is complete or not, this will allow it to be managed and tracked of what tasks are still active. later the user will be able to have a button that will change the completed attribute to true, which we will then filter and show those in a separate list.
+
 const editForm = async (req, res) => {
     const { todoID } = req.params
     const todo = await Todo.findOne({
