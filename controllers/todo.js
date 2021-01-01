@@ -101,6 +101,8 @@ const processDelForm = async (req, res) => {
     }
 }
 
+// confirmation page for whether we wish to delete the actual task or not. it will grab info/data from the req.body and req.params to use for the confirmation prompt.
+
 const completed = async (req, res) => {
     // completed button for list items
     const { todoID } = req.params
